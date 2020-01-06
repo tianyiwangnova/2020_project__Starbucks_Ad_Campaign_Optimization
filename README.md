@@ -38,7 +38,7 @@ We will train 2 classifiers to predict whether a customer will buy the product -
 
 The workflow will be like this 
 
-[!strategy](https://raw.githubusercontent.com/tianyiwangnova/2020_project__Starbucks_Ad_Campaign_Optimization/master/screenshots/starbucks_strategy.jpg)
+![strategy](https://raw.githubusercontent.com/tianyiwangnova/2020_project__Starbucks_Ad_Campaign_Optimization/master/screenshots/starbucks_strategy.jpg)
 
 To handle data imbalance, we upsample the purchase group and downsample the non-purchase group seperately for control and experiment group --- the sizes of the resampled groups are also tunable. Also, when we split the training data to train set and validation set (usually known as train_test_split), we did a stratified sampling to avoid the senario where there's no positive records in validation set and to make sure that the validation set is close to a real world testing data.
 
@@ -46,7 +46,7 @@ When tuning the model, we focused mostly on the loss from errors rather than gai
 
 You can find the loss function `evaluate` in the repo. Because we can't test a person whether they will purchase with ad or without ad at the same time, our loss function is an approximate to a "real world loss". You can find the logic below:
 
-[!loss]()
+![loss](https://raw.githubusercontent.com/tianyiwangnova/2020_project__Starbucks_Ad_Campaign_Optimization/master/screenshots/startbucks_loss_function.jpg)
 
 Parameters for tuning:
 * `control_minority_group_size`: group size of the purchase control group after resampling
@@ -70,7 +70,7 @@ Udacity provided a benchmark result for us to compare:
 Our `irr` is close to the Udacity one and our `nir` is much higher ---- thanks to our strict loss function!
 Remember that there are a lot of resamplings (expecially down-samplings) and other processes that will generate different result under different random_state. We will get different result every time we run our algorithm! So I ran the whole process for 10 times and plotted the distributions of `irr` and `nir`:
 
-[!result](https://raw.githubusercontent.com/tianyiwangnova/2020_project__Starbucks_Ad_Campaign_Optimization/master/screenshots/result.png)
+![result](https://raw.githubusercontent.com/tianyiwangnova/2020_project__Starbucks_Ad_Campaign_Optimization/master/screenshots/result.png)
 
 Our `irr` is between 0.018 and 0.02, `nir` is between 300 and 450!
 
